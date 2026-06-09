@@ -1,36 +1,57 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:task_manager/infrastructures/providers.dart';
+import 'package:window_manager/window_manager.dart';
+import 'presentation/router/app_router.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  // 1. Initialisation des bindings Flutter
+  WidgetsFlutterBinding.ensureInitialized();
+  
+  // 2. Initialisation du gestionnaire de fenêtre
+  await windowManager.ensureInitialized();
+
+  // 3. Initialisation des préférences
+  final prefs = await SharedPreferences.getInstance();
+
+  WindowOptions windowOptions = const WindowOptions(
+    size: Size(800, 600),
+    minimumSize: Size(800, 600),
+    title: 'Gestionnaire de Tâches Avancé',
+  );
+
+  // 4. Lancement de l'application avec ProviderScope
+  windowManager.waitUntilReadyToShow(windowOptions, () async {
+    await windowManager.show();
+    await windowManager.focus();
+  });
+
+  runApp(
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(prefs),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  final _appRouter = AppRouter();
+
   const MyApp({super.key});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Gestionnaire de Tâches',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      routeurConfig: _appRouter.config(),
     );
   }
 }
