@@ -12,7 +12,7 @@ class WeekPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(newTaskRequestProvider, (_, __) {
+    ref.listen(newTaskRequestProvider, (_, _) {
       showDialog(context: context, builder: (_) => TaskFormDialog());
     });
     final tasksAsync = ref.watch(taskProvider);

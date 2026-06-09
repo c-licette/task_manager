@@ -24,6 +24,7 @@ class ProjectRepositoryImpl implements IProjectRepository {
     await _save(projects);
   }
 
+@override
   Future<void> updateProject(Project project) async {
     final projects = await getProjects();
     final index = projects.indexWhere((p) => p.id == project.id);
@@ -33,11 +34,13 @@ class ProjectRepositoryImpl implements IProjectRepository {
     }
   }
 
+  @override 
   Future<void> deleteProject(String id) async {
     final projects = await getProjects();
     projects.removeWhere((p) => p.id == id);
     await _save(projects);
   }
+
 
   Future<void> _save(List<Project> projects) async {
     final data = jsonEncode(projects.map((p) => p.toJson()).toList());
