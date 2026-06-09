@@ -9,13 +9,13 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: [
+      routes: const [
         ProjectsRoute(),
         TodayRoute(),
         WeekRoute(),
         SettingsRoute(),
       ],
-      builder: (context, child) {
+      transitionBuilder: (context, child, animation) {
         final tabsRouter = AutoTabsRouter.of(context);
         return Scaffold(
           body: Row(
@@ -23,9 +23,9 @@ class HomePage extends StatelessWidget {
               NavigationRail(
                 selectedIndex: tabsRouter.activeIndex,
                 onDestinationSelected: tabsRouter.setActiveIndex,
-                destinations: [
+                destinations: const [
                   NavigationRailDestination(icon: Icon(Icons.folder), label: Text('Projets')),
-                  NavigationRailDestination(icon: Icon(Icons.today), label: Text('Aujourd\'hui')),
+                  NavigationRailDestination(icon: Icon(Icons.today), label: Text("Aujourd'hui")),
                   NavigationRailDestination(icon: Icon(Icons.date_range), label: Text('Cette semaine')),
                   NavigationRailDestination(icon: Icon(Icons.settings), label: Text('Paramètres')),
                 ],

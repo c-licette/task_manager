@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class WeekPage extends StatelessWidget {
+  const WeekPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(body: Center(child: Text("Cette Semaine")));

@@ -37,7 +37,7 @@ class ProjectsRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return ProjectsPage();
+      return const ProjectsPage();
     },
   );
 }
@@ -53,7 +53,7 @@ class SettingsRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return SettingsPage();
+      return const SettingsPage();
     },
   );
 }
@@ -85,7 +85,7 @@ class WeekRoute extends PageRouteInfo<void> {
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return WeekPage();
+      return const WeekPage();
     },
   );
 }

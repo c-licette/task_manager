@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:task_manager/core/enums.dart';
 
-part 'task.freezed.dart';
-part 'task.g.dart';
+part 'task.freezed.dart';   // ← sans "entities/"
+part 'task.g.dart';         // ← sans "entities/"
 
 @freezed
-class Task with _$Task {
+abstract class Task with _$Task {
   const factory Task({
     required String id,
     required String title,
