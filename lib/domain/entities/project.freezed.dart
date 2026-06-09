@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Project {
 
- String get id; String get title; String? get description; Priority get priority; Status get status; DateTime? get dueDate; String? get projectId; DateTime get createdAt;
+ String get id; String get name; int get color;
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ProjectCopyWith<Project> get copyWith => _$ProjectCopyWithImpl<Project>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.status, status) || other.status == status)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Project&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.color, color) || other.color == color));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,priority,status,dueDate,projectId,createdAt);
+int get hashCode => Object.hash(runtimeType,id,name,color);
 
 @override
 String toString() {
-  return 'Project(id: $id, title: $title, description: $description, priority: $priority, status: $status, dueDate: $dueDate, projectId: $projectId, createdAt: $createdAt)';
+  return 'Project(id: $id, name: $name, color: $color)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $ProjectCopyWith<$Res>  {
   factory $ProjectCopyWith(Project value, $Res Function(Project) _then) = _$ProjectCopyWithImpl;
 @useResult
 $Res call({
- String id, String title, String? description, Priority priority, Status status, DateTime? dueDate, String? projectId, DateTime createdAt
+ String id, String name, int color
 });
 
 
@@ -65,17 +65,12 @@ class _$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? description = freezed,Object? priority = null,Object? status = null,Object? dueDate = freezed,Object? projectId = freezed,Object? createdAt = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? color = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String?,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as Priority,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status,dueDate: freezed == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
-as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 
@@ -160,10 +155,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String title,  String? description,  Priority priority,  Status status,  DateTime? dueDate,  String? projectId,  DateTime createdAt)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String name,  int color)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.priority,_that.status,_that.dueDate,_that.projectId,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.color);case _:
   return orElse();
 
 }
@@ -181,10 +176,10 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.stat
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String title,  String? description,  Priority priority,  Status status,  DateTime? dueDate,  String? projectId,  DateTime createdAt)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String name,  int color)  $default,) {final _that = this;
 switch (_that) {
 case _Project():
-return $default(_that.id,_that.title,_that.description,_that.priority,_that.status,_that.dueDate,_that.projectId,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.color);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -201,10 +196,10 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.stat
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String title,  String? description,  Priority priority,  Status status,  DateTime? dueDate,  String? projectId,  DateTime createdAt)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String name,  int color)?  $default,) {final _that = this;
 switch (_that) {
 case _Project() when $default != null:
-return $default(_that.id,_that.title,_that.description,_that.priority,_that.status,_that.dueDate,_that.projectId,_that.createdAt);case _:
+return $default(_that.id,_that.name,_that.color);case _:
   return null;
 
 }
@@ -216,17 +211,12 @@ return $default(_that.id,_that.title,_that.description,_that.priority,_that.stat
 @JsonSerializable()
 
 class _Project implements Project {
-  const _Project({required this.id, required this.title, this.description, this.priority = Priority.moyenne, this.status = Status.aFaire, this.dueDate, this.projectId, required this.createdAt});
+  const _Project({required this.id, required this.name, required this.color});
   factory _Project.fromJson(Map<String, dynamic> json) => _$ProjectFromJson(json);
 
 @override final  String id;
-@override final  String title;
-@override final  String? description;
-@override@JsonKey() final  Priority priority;
-@override@JsonKey() final  Status status;
-@override final  DateTime? dueDate;
-@override final  String? projectId;
-@override final  DateTime createdAt;
+@override final  String name;
+@override final  int color;
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
@@ -241,16 +231,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.description, description) || other.description == description)&&(identical(other.priority, priority) || other.priority == priority)&&(identical(other.status, status) || other.status == status)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.projectId, projectId) || other.projectId == projectId)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Project&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.color, color) || other.color == color));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,title,description,priority,status,dueDate,projectId,createdAt);
+int get hashCode => Object.hash(runtimeType,id,name,color);
 
 @override
 String toString() {
-  return 'Project(id: $id, title: $title, description: $description, priority: $priority, status: $status, dueDate: $dueDate, projectId: $projectId, createdAt: $createdAt)';
+  return 'Project(id: $id, name: $name, color: $color)';
 }
 
 
@@ -261,7 +251,7 @@ abstract mixin class _$ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
   factory _$ProjectCopyWith(_Project value, $Res Function(_Project) _then) = __$ProjectCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String title, String? description, Priority priority, Status status, DateTime? dueDate, String? projectId, DateTime createdAt
+ String id, String name, int color
 });
 
 
@@ -278,17 +268,12 @@ class __$ProjectCopyWithImpl<$Res>
 
 /// Create a copy of Project
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? description = freezed,Object? priority = null,Object? status = null,Object? dueDate = freezed,Object? projectId = freezed,Object? createdAt = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? name = null,Object? color = null,}) {
   return _then(_Project(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
-as String,description: freezed == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
-as String?,priority: null == priority ? _self.priority : priority // ignore: cast_nullable_to_non_nullable
-as Priority,status: null == status ? _self.status : status // ignore: cast_nullable_to_non_nullable
-as Status,dueDate: freezed == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as DateTime?,projectId: freezed == projectId ? _self.projectId : projectId // ignore: cast_nullable_to_non_nullable
-as String?,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: cast_nullable_to_non_nullable
-as DateTime,
+as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 
