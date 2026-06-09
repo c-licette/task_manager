@@ -6,7 +6,6 @@ import '../../application/project_provider.dart';
 import '../../application/task_provider.dart';
 import '../../application/search_provider.dart';
 import '../../domain/entities/project.dart';
-import '../../domain/entities/task.dart';
 import '../widgets/task_card.dart';
 import '../widgets/task_form.dart';
 
@@ -29,7 +28,6 @@ Widget build(BuildContext context) {
     loading: () => const Center(child: CircularProgressIndicator()),
     error: (e, _) => Center(child: Text('Erreur : $e')),
     data: (projects) {
-      final query = ref.watch(searchQueryProvider).toLowerCase();
       // Aucun projet sélectionné → pleine page centrée
       if (_selectedProjectId == null) {
         return Center(

@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../application/task_provider.dart';
 import '../../application/search_provider.dart';
-import '../../core/enums.dart';
-import '../../domain/entities/task.dart';
 import '../widgets/task_form.dart';
 import '../widgets/task_card.dart';
 
@@ -14,7 +12,7 @@ class TodayPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.listen(newTaskRequestProvider, (_, __) {
+    ref.listen(newTaskRequestProvider, (_, _) {
       showDialog(context: context, builder: (_) => TaskFormDialog());
     });
     final tasksAsync = ref.watch(taskProvider);
