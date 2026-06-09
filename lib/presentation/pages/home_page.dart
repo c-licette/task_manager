@@ -10,8 +10,6 @@ class HomePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchVisible = ref.watch(searchVisibleProvider);
-
     return AutoTabsScaffold(
       routes: const [
         ProjectsRoute(),
