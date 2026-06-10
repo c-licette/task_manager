@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:task_manager/core/enums.dart';
 
-part 'task.freezed.dart';   // ← sans "entities/"
-part 'task.g.dart';         // ← sans "entities/"
+part 'task.freezed.dart';
+part 'task.g.dart';         
 
 @freezed
 abstract class Task with _$Task {

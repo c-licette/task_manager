@@ -13,7 +13,6 @@ import 'task_repository_test.mocks.dart';
 
 @GenerateMocks([ITaskRepository])
 void main() {
-  // Test 1 — comportement du repository mocké
   group('ITaskRepository mock', () {
     late MockITaskRepository mockRepo;
 
@@ -66,8 +65,6 @@ void main() {
       verify(mockRepo.deleteTask('1')).called(1);
     });
   });
-
-  // Test 2 — provider avec ProviderContainer et overrides
   group('TaskProvider avec ProviderContainer', () {
     late MockITaskRepository mockRepo;
 

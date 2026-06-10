@@ -29,7 +29,6 @@ Widget build(BuildContext context) {
     loading: () => const Center(child: CircularProgressIndicator()),
     error: (e, _) => Center(child: Text('Erreur : $e')),
     data: (projects) {
-      // Aucun projet sélectionné → pleine page centrée
       if (_selectedProjectId == null) {
         return Center(
           child: Column(
@@ -64,7 +63,6 @@ Widget build(BuildContext context) {
         );
       }
 
-      // Projet sélectionné → layout sidebar + contenu
       return Row(
         children: [
           SizedBox(

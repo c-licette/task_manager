@@ -4,12 +4,11 @@ import 'task_repository_impl.dart';
 import 'project_repository_impl.dart';
 import '../domain/repositories/task_repository.dart';
 
-// Provider pour injecter SharedPreferences
+
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
   throw UnimplementedError('Doit être initialisé dans le main');
 });
 
-// Provider pour le repository
 final taskRepositoryProvider = Provider<ITaskRepository>((ref) {
   final prefs = ref.watch(sharedPreferencesProvider);
   return TaskRepositoryImpl(prefs);
