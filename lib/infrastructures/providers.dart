@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'task_repository_impl.dart';
 import 'project_repository_impl.dart';
+import '../domain/repositories/task_repository.dart';
 
 // Provider pour injecter SharedPreferences
 final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
@@ -9,7 +10,7 @@ final sharedPreferencesProvider = Provider<SharedPreferences>((ref) {
 });
 
 // Provider pour le repository
-final taskRepositoryProvider = Provider<TaskRepositoryImpl>((ref) {
+final taskRepositoryProvider = Provider<ITaskRepository>((ref) {
   final prefs = ref.watch(sharedPreferencesProvider);
   return TaskRepositoryImpl(prefs);
 });
