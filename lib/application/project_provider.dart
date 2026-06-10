@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/entities/project.dart';
-import '../infrastructures/providers.dart';
+import '../infrastructure/providers.dart';
 
 class ProjectNotifier extends AsyncNotifier<List<Project>> {
   @override

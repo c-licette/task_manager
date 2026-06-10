@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:task_manager/infrastructures/providers.dart';
+import 'package:task_manager/infrastructure/providers.dart';
 import 'package:task_manager/presentation/router/app_router.dart';
 import 'package:window_manager/window_manager.dart';
 import 'application/theme_provider.dart';

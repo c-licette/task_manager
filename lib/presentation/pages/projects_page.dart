@@ -8,6 +8,7 @@ import '../../application/search_provider.dart';
 import '../../domain/entities/project.dart';
 import '../widgets/task_card.dart';
 import '../widgets/task_form.dart';
+import '../../infrastructure/providers.dart';
 
 @RoutePage()
 class ProjectsPage extends ConsumerStatefulWidget {
@@ -241,7 +242,12 @@ Widget build(BuildContext context) {
             child: const Text('Annuler'),
           ),
           TextButton(
-            onPressed: () {
+            onPressed: () async {
+              final tasks = await ref.read(taskRepositoryProvider).getTasks();
+              for (final task in tasks.where((t) => t.projectId == project.id)) {
+                await ref.read(taskRepositoryProvider).deleteTask(task.id);
+              }
+              ref.invalidate(taskProvider);
               ref.read(projectProvider.notifier).deleteProject(project.id);
               if (_selectedProjectId == project.id) {
                 setState(() => _selectedProjectId = null);

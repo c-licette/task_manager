@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../domain/entities/task.dart';
-import '../infrastructures/providers.dart';
+import '../infrastructure/providers.dart';
 
 class TaskNotifier extends AsyncNotifier<List<Task>> {
   @override

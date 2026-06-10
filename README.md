@@ -27,7 +27,7 @@ lib/
 ├── core/           # Enums (Priority, Status)
 ├── domain/         # Entités Freezed, interfaces repositories
 ├── application/    # Providers Riverpod
-├── infrastructures/ # Implémentations repositories (SharedPreferences)
+├── infrastructure/ # Implémentations repositories (SharedPreferences)
 └── presentation/   # Pages, widgets, router
 
 ## Stack technique

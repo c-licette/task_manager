@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../infrastructures/providers.dart';
+import '../infrastructure/providers.dart';
 
 class ThemeNotifier extends Notifier<bool> {
   static const _key = 'dark_mode';

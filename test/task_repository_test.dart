@@ -5,7 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:task_manager/domain/entities/task.dart';
 import 'package:task_manager/domain/repositories/task_repository.dart';
 import 'package:task_manager/application/task_provider.dart';
-import 'package:task_manager/infrastructures/providers.dart';
+import 'package:task_manager/infrastructure/providers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:task_manager/core/enums.dart';
 

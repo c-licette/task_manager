@@ -69,7 +69,7 @@ class _TaskFormDialogState extends ConsumerState<TaskFormDialog> {
                 decoration: const InputDecoration(labelText: 'Priorité'),
                 items: Priority.values.map((p) => DropdownMenuItem(
                   value: p,
-                  child: Text(p.name),
+                  child: Text(p.label),
                 )).toList(),
                 onChanged: (v) => setState(() => _priority = v!),
               ),
@@ -79,7 +79,7 @@ class _TaskFormDialogState extends ConsumerState<TaskFormDialog> {
                 decoration: const InputDecoration(labelText: 'Statut'),
                 items: Status.values.map((s) => DropdownMenuItem(
                   value: s,
-                  child: Text(s.name),
+                  child: Text(s.label),
                 )).toList(),
                 onChanged: (v) => setState(() => _status = v!),
               ),

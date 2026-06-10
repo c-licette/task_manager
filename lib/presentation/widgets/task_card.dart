@@ -100,15 +100,10 @@ class _StatusChip extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final labels = {
-      Status.aFaire: 'À faire',
-      Status.enCours: 'En cours',
-      Status.terminee: 'Terminée',
-    };
     return GestureDetector(
       onTap: () => _cycleStatus(ref),
       child: Chip(
-        label: Text(labels[task.status]!, style: const TextStyle(fontSize: 11)),
+        label: Text(task.status.label, style: const TextStyle(fontSize: 11)), // ← simplifié
         padding: EdgeInsets.zero,
       ),
     );
